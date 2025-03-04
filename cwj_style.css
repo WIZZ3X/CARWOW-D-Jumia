@@ -328,3 +328,173 @@ footer a {
     color: #F1F0E9;
     text-decoration: underline;
 }
+
+/* 
+
+
+
+
+
+
+
+
+
+
+
+            The  shop Page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+/* Shop Layout */
+.shop-container {
+    display: flex;
+    margin-top: 80px;
+    position: relative;
+}
+
+.shop-sidebar {
+    width: 250px;
+    background: #0D4715;
+    padding: 2rem;
+    position: fixed;
+    height: calc(100vh - 80px);
+    color: #F1F0E9;
+}
+
+.shop-main {
+    flex: 1;
+    margin-right: 250px;
+    padding: 2rem;
+}
+
+/* Categories Sidebar */
+.shop-sidebar h3 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #E9762B;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.shop-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.shop-sidebar li a {
+    color: #F1F0E9;
+    text-decoration: none;
+    display: block;
+    padding: 0.8rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.shop-sidebar li a:hover {
+    background: #41644A;
+}
+
+/* Filter Navigation */
+.shop-filter {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: #F1F0E9;
+    border: 2px solid #0D4715;
+    color: #0D4715;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #0D4715;
+    color: #F1F0E9;
+}
+
+/* Cars Grid */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.shop-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.shop-card:hover {
+    transform: translateY(-5px);
+}
+
+.shop-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.car-info {
+    padding: 1.5rem;
+}
+
+.car-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    color: #41644A;
+    font-size: 0.9rem;
+}
+
+.car-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.car-price p {
+    color: #0D4715;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.view-btn {
+    background: #E9762B;
+    color: #F1F0E9;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.view-btn:hover {
+    background: #d16623;
+}
