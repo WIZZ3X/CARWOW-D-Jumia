@@ -1,0 +1,11 @@
+first -  I need to fix the header I need to make that If I hover at the logo which is logo.png I need it pop up a little and if I clicked at the logo I need it to take me to the home page which is  this cwj_main.html 
+second - I need to fix those in the header too the About Us, Sign-In and The Shop they're not in order anymore its like two of the are beside and one is under and when the page is small they all get under I need to fix it so they're always will be next each other and I'd like it if they have a bold font or a little bigger size to look clearer
+third - the paragraph is next to the H1 I want it to be under it 
+fourth - the paragraph and the H1 are written in Arabic soo I would like you to align the text in the right and the make the picture in the left
+fifth - the explore inventory button should be under all the h1 and the paragraph too
+sixth - under all of that I need to make a section where there will be like a slider that goes left and right and it have like 5 boxes in each one there is a small user picture under it will be his name and under that will be his review about buying from here in each box I want to have different reviews and names
+seventh - under that I want to list two videos next to each other from youtube this is the embed code of the first one : <iframe width="941" height="539" src="https://www.youtube.com/embed/tvow9XWTU3M" title="Flying car meme" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>, and this is the second embed code : <iframe width="941" height="539" src="https://www.youtube.com/embed/mpjvfdUHMl8" title="Volkswagen Das Auto meme" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+just add those two videos under a label that called videos and dont give them a title
+eighth - I wanted to add a footer  that countains a no copyright as a joke and a link to the home page which is this one I want you to make the footer dynamic and a little bigger than it now
+
+  

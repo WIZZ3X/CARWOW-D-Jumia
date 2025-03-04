@@ -1,0 +1,7 @@
+#F1F0E9   Background and P
+
+#41644A   Prim
+
+#0D4715   Sec
+
+#E9762B   Alter
