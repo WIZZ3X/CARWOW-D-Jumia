@@ -5,77 +5,746 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CARWOW D'Jumia | Home</title>
+    <title>CARWOW D'Jumia | المتجر</title>
+    <style>
+        /* Enhanced search bar */
+        .search-container {
+            display: flex;
+            margin: 1rem auto;
+            max-width: 700px;
+            border-radius: 35px;
+            overflow: hidden;
+            border: 3px solid #0D4715;
+            background: #F1F0E9;
+            box-shadow: 0 5px 15px rgba(13, 71, 21, 0.2);
+        }
+        
+        .search-container input {
+            flex-grow: 1;
+            padding: 0.9rem 1.5rem;
+            border: none;
+            font-size: 1.1rem;
+            background: transparent;
+            font-family: 'ReadexPro', sans-serif;
+        }
+        
+        .search-container input::placeholder {
+            color: #41644A;
+            opacity: 0.7;
+        }
+        
+        .search-container button {
+            background: #E9762B;
+            color: #F1F0E9;
+            border: none;
+            padding: 0 1.8rem;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-container button:hover {
+            background: #d16623;
+            letter-spacing: 1px;
+        }
+        
+        /* Improved toolbar */
+        .shop-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.5rem 0 2.5rem;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            padding: 0.8rem;
+            background: rgba(65, 100, 74, 0.1);
+            border-radius: 15px;
+        }
+        
+        .sort-container {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .sort-container span {
+            font-weight: bold;
+            color: #0D4715;
+        }
+        
+        .sort-container select {
+            padding: 0.6rem 1rem;
+            border: 2px solid #0D4715;
+            border-radius: 30px;
+            background: #F1F0E9;
+            font-family: 'ReadexPro', sans-serif;
+            font-size: 1rem;
+        }
+        
+        /* Enhanced car cards */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .shop-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(13, 71, 21, 0.15);
+        }
+        
+        .shop-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(233, 118, 43, 0.25);
+        }
+        
+        .shop-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .shop-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .car-info {
+            padding: 1.5rem;
+            background: white;
+        }
+        
+        .car-info h4 {
+            font-size: 1.4rem;
+            color: #0D4715;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .car-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #41644A;
+            font-size: 0.95rem;
+            margin: 0.8rem 0;
+            padding-top: 0.8rem;
+            border-top: 1px dashed #E9762B;
+        }
+        
+        .car-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin: 0.8rem 0;
+        }
+        
+        .car-tag {
+            background: #E9762B;
+            color: #F1F0E9;
+            padding: 0.3rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .car-tag.warning {
+            background: #cc0000;
+            animation: pulse 2s infinite;
+        }
+        
+        .car-tag.info {
+            background: #41644A;
+        }
+        
+        .special-offer {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #cc0000, #ff6600);
+            color: #F1F0E9;
+            padding: 0.4rem 1.3rem;
+            border-radius: 25px;
+            font-weight: bold;
+            z-index: 10;
+            transform: rotate(5deg);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 1.1rem;
+        }
+        
+        .car-description {
+            color: #41644A;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0.8rem 0;
+            min-height: 80px;
+        }
+        
+        .car-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.2rem;
+        }
+        
+        .car-price p {
+            color: #0D4715;
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .view-btn {
+            background: #E9762B;
+            color: #F1F0E9;
+            border: none;
+            padding: 0.6rem 1.3rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .view-btn:hover {
+            background: #0D4715;
+            transform: scale(1.05);
+        }
+        
+        /* Category section styling */
+        .category-section {
+            margin: 3rem 0 1.5rem;
+            position: relative;
+        }
+        
+        .category-section h3 {
+            font-size: 2.2rem;
+            color: #0D4715;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #E9762B;
+            display: inline-block;
+        }
+        
+        /* Animation for warning tags */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(204, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .shop-main {
+                margin-right: 0;
+            }
+            
+            .shop-container {
+                flex-direction: column;
+            }
+            
+            .shop-sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                margin-bottom: 2rem;
+            }
+            
+            .shop-toolbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .search-container {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .shop-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .car-price {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-		<div class="logo">
-			<a href="cwj_main.html">
-				<img src="./assets/logo.png" alt="CWJ Logo">
-			</a>
-		</div>
-		<nav>
-			<a href="cwj_main.html">الصفحة الرئيسية</a>
-			<a href="cwj_about.html">من نحـن</a>
-			<div class="auth-buttons">
-				<a href="sin_form.html" class="signin-btn">
-					<img src="./assets/icons/signin.png" alt="Sign In">تسجيل الدخول</a>
-				<a href="sup_form.html" class="signup-btn">
-					<img src="./assets/icons/signup.png" alt="Sign Up">تسجيل حسـاب</a>
-			</div>
-		</nav>
-	</header>
-	
-	<main class="shop-container">
-		<!-- Categories Sidebar -->
-		<aside class="shop-sidebar">
-			<h3>الفئات</h3>
-			<ul>
-				<li><a href="#sedan">سيدان</a></li>
-				<li><a href="#suv">دفع رباعي</a></li>
-				<li><a href="#classic">كلاسيكية</a></li>
-				<li><a href="#luxury">فاخرة</a></li>
-				<li><a href="#sports">رياضية</a></li>
-				<li><a href="#vans">عائلية</a></li>
-			</ul>
-		</aside>
-	
-		<!-- Main Shop Content -->
-		<div class="shop-main">
-			<!-- Filter Navigation -->
-			<nav class="shop-filter">
-				<button class="filter-btn active">الكل</button>
-				<button class="filter-btn">تحت 100,000 درهم</button>
-				<button class="filter-btn">جديدة</button>
-				<button class="filter-btn">مستعملة</button>
-			</nav>
-	
-			<!-- Cars Grid -->
-			<div class="shop-grid">
-				<!-- Repeat this block 20 times with different content -->
-				<div class="shop-card">
-					<img src="./assets/cars/car1.jpg" alt="Car Model">
-					<div class="car-info">
-						<h4>مرسيدس C200 2023</h4>
-						<div class="car-details">
-							<span>سيدان</span>
-							<span>25,000 كم</span>
-						</div>
-						<div class="car-price">
-							<p>275,000 درهم</p>
-							<button class="view-btn">عرض التفاصيل</button>
-						</div>
-					</div>
-				</div>
-				<!-- Add 19 more car cards here -->
-			</div>
-		</div>
-	</main>
+        <div class="logo">
+            <a href="cwj_main.html">
+                <img src="./assets/logo.png" alt="CWJ Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="cwj_main.html">الصفحة الرئيسية</a>
+            <a href="cwj_about.html">من نحـن</a>
+            <div class="auth-buttons">
+                <a href="sin_form.html" class="signin-btn">
+                    <img src="./assets/icons/signin.png" alt="Sign In">تسجيل الدخول</a>
+                <a href="sup_form.html" class="signup-btn">
+                    <img src="./assets/icons/signup.png" alt="Sign Up">تسجيل حسـاب</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="shop-container">
+        <!-- Categories Sidebar -->
+        <aside class="shop-sidebar">
+            <h3>الفئات</h3>
+            <ul>
+                <li><a href="#artistic">فنية</a></li>
+                <li><a href="#budget">اقتصادية</a></li>
+                <li><a href="#convertible">مكشوفة</a></li>
+                <li><a href="#family">عائلية</a></li>
+                <li><a href="#special">خاصة</a></li>
+            </ul>
+        </aside>
+    
+        <!-- Main Shop Content -->
+        <div class="shop-main">
+            <!-- Search bar -->
+            <div class="search-container">
+                <input type="text" placeholder="ابحث عن سيارة غريبة تناسب ذوقك المميز...">
+                <button type="button">بحث</button>
+            </div>
+            
+            <!-- Toolbar with filters and sorting -->
+            <div class="shop-toolbar">
+                <div class="sort-container">
+                    <span>ترتيب حسب:</span>
+                    <select>
+                        <option>الأحدث</option>
+                        <option>الأغلى ثمناً</option>
+                        <option>الأرخص</option>
+                        <option>الأكثر غرابة</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Cars Grid -->
+            <div class="shop-grid">
+                <!-- Artistic Category -->
+                <div class="category-section">
+                    <h3 id="artistic">الفنية</h3>
+                </div>
+                
+                <div class="shop-card">
+                    <div class="special-offer">عرض خاص!</div>
+                    <img src="./assets/cars/Artistic/karin1.jpg" alt="Karin">
+                    <div class="car-info">
+                        <h4>كارين الفنية</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">فنية</span>
+                            <span class="car-tag info">عرض خاص</span>
+                        </div>
+                        <div class="car-description">
+                            لوحة فنية على عجلات! تصميمها الفريد يجعلها تحفة متحركة تلفت الأنظار أينما ذهبت. مثالية للمبدعين الذين يبحثون عن التميز.
+                        </div>
+                        <div class="car-stats">
+                            <span>فنية</span>
+                            <span>12,000 كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>320,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <img src="./assets/cars/Artistic/pivo1.png" alt="Pivo">
+                    <div class="car-info">
+                        <h4>بيفو المتحولة</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">فنية</span>
+                            <span class="car-tag">مبتكرة</span>
+                        </div>
+                        <div class="car-description">
+                            المستقبل بين يديك! مقصورة تدور 360 درجة لتغير مفهوم القيادة التقليدي. جرب الإثارة الحقيقية للسيارات المبتكرة.
+                        </div>
+                        <div class="car-stats">
+                            <span>فنية</span>
+                            <span>8,500 كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>285,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <div class="special-offer">عرض خاص!</div>
+                    <img src="./assets/cars/Artistic/zippocar1.jpg" alt="Zippocar">
+                    <div class="car-info">
+                        <h4>زيبوكار السريعة</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">فنية</span>
+                            <span class="car-tag warning">سرعة عالية</span>
+                        </div>
+                        <div class="car-description">
+                            أنيقة وسريعة مثل السهم! تصميمها الديناميكي يجعلها تطفو على الطريق. ليست للقلوب الضعيفة.
+                        </div>
+                        <div class="car-stats">
+                            <span>فنية</span>
+                            <span>15,300 كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>375,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Budget Category -->
+                <div class="category-section">
+                    <h3 id="budget">الاقتصادية</h3>
+                </div>
+                
+                <div class="shop-card">
+                    <img src="./assets/cars/Budget/bmw_isseta2.png" alt="BMW Isetta">
+                    <div class="car-info">
+                        <h4>بي إم دبليو إيزيتا</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">اقتصادية</span>
+                            <span class="car-tag">كلاسيكية</span>
+                        </div>
+                        <div class="car-description">
+                            البيضة المتحركة! أصغر سيارة في العالم مع باب أمامي يجعل الخروج منها حدثاً مسرحياً. ادخر مكان وقوف السيارات للآخرين!
+                        </div>
+                        <div class="car-stats">
+                            <span>اقتصادية</span>
+                            <span>??? كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>65,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <div class="special-offer">عرض خاص!</div>
+                    <img src="./assets/cars/Budget/peelp50.png" alt="Peel P50">
+                    <div class="car-info">
+                        <h4>بيل P50</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">اقتصادية</span>
+                            <span class="car-tag warning">صغيرة جداً</span>
+                        </div>
+                        <div class="car-description">
+                            أصغر سيارة إنتاج في العالم! مثالية للمدن المزدحمة، أو لمن يريدون اصطحاب سيارتهم داخل المصعد. تحذير: قد تخطفها الرياح القوية!
+                        </div>
+                        <div class="car-stats">
+                            <span>اقتصادية</span>
+                            <span>??? كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>55,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <img src="./assets/cars/Budget/peeltrident.png" alt="Peel Trident">
+                    <div class="car-info">
+                        <h4>بيل ترايدنت</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">اقتصادية</span>
+                            <span class="car-tag">فضائية</span>
+                        </div>
+                        <div class="car-description">
+                            المركبة الفضائية الأرضية! بسقف فقاعي وثلاث عجلات، تشعرك أنك تقود مركبة من المستقبل. لا نضمن عدم انجذاب الفضائيين إليك!
+                        </div>
+                        <div class="car-stats">
+                            <span>اقتصادية</span>
+                            <span>??? كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>60,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Convertible Category -->
+                <div class="category-section">
+                    <h3 id="convertible">المكشوفة</h3>
+                </div>
+                
+                <div class="shop-card">
+                    <img src="./assets/cars/Convertible/ChryslerProwler1.jpg" alt="Chrysler Prowler">
+                    <div class="car-info">
+                        <h4>كرايسلر براولر</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">مكشوفة</span>
+                            <span class="car-tag">ريترو</span>
+                        </div>
+                        <div class="car-description">
+                            عودة إلى الخمسينيات بلمسة حديثة! تصميمها الجريء يجعل كل من يراها يتوقف لالتقاط الصور. كن نجماً في شوارع مدينتك!
+                        </div>
+                        <div class="car-stats">
+                            <span>مكشوفة</span>
+                            <span>42,000 كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>210,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <div class="special-offer">عرض خاص!</div>
+                    <img src="./assets/cars/Convertible/fiat1261.jpg" alt="Fiat 1261">
+                    <div class="car-info">
+                        <h4>فيات 1261</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">مكشوفة</span>
+                            <span class="car-tag">كلاسيكية</span>
+                        </div>
+                        <div class="car-description">
+                            الأسطورة الإيطالية الصغيرة! تحفة كلاسيكية مكشوفة تذكرنا بزمن أبسط وأجمل. مثالية للرحلات الساحلية.
+                        </div>
+                        <div class="car-stats">
+                            <span>مكشوفة</span>
+                            <span>??? كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>85,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <img src="./assets/cars/Convertible/flipped1.png" alt="Flipped Car">
+                    <div class="car-info">
+                        <h4>السيارة المقلوبة</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">مكشوفة</span>
+                            <span class="car-tag warning">غير تقليدية</span>
+                        </div>
+                        <div class="car-description">
+                            لم تعد تعرف أين الأعلى وأين الأسفل! تجربة قيادة فريدة حيث تكون السماء تحت قدميك. ننصح بعدم القيادة في الأيام الممطرة!
+                        </div>
+                        <div class="car-stats">
+                            <span>مكشوفة</span>
+                            <span>18,500 كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>195,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <img src="./assets/cars/Convertible/porsche9141.png" alt="Porsche 914">
+                    <div class="car-info">
+                        <h4>بورش 914</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">مكشوفة</span>
+                            <span class="car-tag">رياضية</span>
+                        </div>
+                        <div class="car-description">
+                            الجوهرة المخفية من بورش! سيارة مكشوفة متوسطة المحرك نادرة تجمع بين الأداء والأناقة. سرٌّ لا يعرفه الكثيرون.
+                        </div>
+                        <div class="car-stats">
+                            <span>مكشوفة</span>
+                            <span>??? كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>275,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Family Category -->
+                <div class="category-section">
+                    <h3 id="family">العائلية</h3>
+                </div>
+                
+                <div class="shop-card">
+                    <div class="special-offer">عرض خاص!</div>
+                    <img src="./assets/cars/Family/G20ScoobyDoo1.jpg" alt="Chevy G20 Scooby-Doo">
+                    <div class="car-info">
+                        <h4>شيفي G20 إصدار سكوبي دو</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">عائلية</span>
+                            <span class="car-tag">تلفزيونية</span>
+                        </div>
+                        <div class="car-description">
+                            لغز السيارة المتحركة! مثالية للعائلات التي تحب المغامرات ولصيد الأشرار المتخفين. قد تحتوي على أشباح!
+                        </div>
+                        <div class="car-stats">
+                            <span>عائلية</span>
+                            <span>??? كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>185,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <img src="./assets/cars/Family/StoutScarab1.jpg" alt="Stout Scarab">
+                    <div class="car-info">
+                        <h4>ستاوت سكاراب</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">عائلية</span>
+                            <span class="car-tag">تاريخية</span>
+                        </div>
+                        <div class="car-description">
+                            أول ميني فان في التاريخ! تصميمها الثوري من الأربعينيات ما زال يبدو مستقبلياً حتى اليوم. تحفة متحركة.
+                        </div>
+                        <div class="car-stats">
+                            <span>عائلية</span>
+                            <span>??? كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>225,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <img src="./assets/cars/Family/Superbus1.png" alt="Super Bus">
+                    <div class="car-info">
+                        <h4>سوبر باص</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">عائلية</span>
+                            <span class="car-tag warning">كبيرة جداً</span>
+                        </div>
+                        <div class="car-description">
+                            الفندق المتحرك على الطرقات! بسعة 23 راكباً ومرافق فاخرة، رحلات العائلة لن تكون كالسابق. قد تحتاج إلى رخصة قيادة شاحنة!
+                        </div>
+                        <div class="car-stats">
+                            <span>عائلية</span>
+                            <span>35,000 كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>1,250,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <div class="special-offer">عرض خاص!</div>
+                    <img src="./assets/cars/Family/wjeep1.jpg" alt="Jeep Wrangler 8 Seats">
+                    <div class="car-info">
+                        <h4>جيب رانجلر 8 مقاعد</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">عائلية</span>
+                            <span class="car-tag">مغامرات</span>
+                        </div>
+                        <div class="car-description">
+                            الجيب الذي يأخذ العائلة بأكملها! الآن يمكنك اصطحاب الأقارب والأصدقاء في رحلات التضاريس الوعرة. مغامرة لا تنسى!
+                        </div>
+                        <div class="car-stats">
+                            <span>عائلية</span>
+                            <span>28,000 كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>325,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Special Category -->
+                <div class="category-section">
+                    <h3 id="special">الخاصة</h3>
+                </div>
+                
+                <div class="shop-card">
+                    <img src="./assets/cars/Special/Amphicar1.jpg" alt="Amphicar">
+                    <div class="car-info">
+                        <h4>أمفيكار 1965</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">خاصة</span>
+                            <span class="car-tag">تسبح!</span>
+                        </div>
+                        <div class="car-description">
+                            لم تعد بحاجة للجسور! هذه السيارة/المركب جاهزة لأي فيضان أو بحيرة صغيرة. تحذير: لا نضمن عدم الغرق في المياه العميقة!
+                        </div>
+                        <div class="car-stats">
+                            <span>خاصة</span>
+                            <span>15,000 كم (وطول)</span>
+                        </div>
+                        <div class="car-price">
+                            <p>350,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <div class="special-offer">عرض خاص!</div>
+                    <img src="./assets/cars/Special/fisker1.png" alt="Fisker Karma">
+                    <div class="car-info">
+                        <h4>فيسكر كارما</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">خاصة</span>
+                            <span class="car-tag">كهربائية</span>
+                        </div>
+                        <div class="car-description">
+                            السيارة التي سبقت عصرها! تصميمها الثوري وكهربائيتها جعلتها تحفة تكنولوجية فريدة. جمال وأداء في آن واحد.
+                        </div>
+                        <div class="car-stats">
+                            <span>خاصة</span>
+                            <span>22,000 كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>295,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="shop-card">
+                    <img src="./assets/cars/Special/trackngo1.png" alt="Ford F150 with Snow Skates">
+                    <div class="car-info">
+                        <h4>فورد F150 مع زلاجات ثلج</h4>
+                        <div class="car-tags">
+                            <span class="car-tag">خاصة</span>
+                            <span class="car-tag">شتوية</span>
+                        </div>
+                        <div class="car-description">
+                            الشاحنة التي لا تعرف المستحيل! مع زلاجات الثلج بدلاً من العجلات، أصبحت جاهزة لأقسى الظروف. مثالية لمناطق التندرا!
+                        </div>
+                        <div class="car-stats">
+                            <span>خاصة</span>
+                            <span>18,500 كم</span>
+                        </div>
+                        <div class="car-price">
+                            <p>410,000 درهم</p>
+                            <button class="view-btn">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-	<footer>
-		<div class="footer-content">
-			<p>© جميع الحقوق غير محفوظة لـ<a href="cwj_main.html">CARWOWDJumia.com</a></p>
-		</div>
-	</footer>
+    <footer>
+        <div class="footer-content">
+            <p>© جميع الحقوق غير محفوظة لـ<a href="cwj_main.html">CARWOWDJumia.com</a></p>
+        </div>
+    </footer>
 </body>
 </html>
