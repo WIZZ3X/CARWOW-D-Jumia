@@ -703,7 +703,31 @@ Authentication Styles
 
 
 
+
+
+
+
+
+
+
+
 /* About Page Styling */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .about-content {
     max-width: 900px;
     margin: 2rem auto;
@@ -767,8 +791,6 @@ Authentication Styles
     top: -0.2rem;
 }
 
-/* Enhanced About Page Styling */
-/* Add after previous about-content styles */
 
 /* Team Section */
 .team-section {
