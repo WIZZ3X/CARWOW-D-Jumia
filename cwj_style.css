@@ -337,21 +337,7 @@ footer a {
 
 
 
-
-
-
-
             The  shop Page
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -559,4 +545,154 @@ Authentication Styles
     color: #0D4715;
     text-decoration: none;
     font-weight: bold;
+}
+
+
+/*Sidebar Container Alignment*/
+.shop-sidebar {
+	text-align: center; /* Center-align all text */
+	width: 200px;
+}
+
+.shop-sidebar li {
+  display: flex;
+  justify-content: center; /* Horizontally center content */
+}
+
+.shop-sidebar li a {
+  padding: 0.8rem 1.5rem; /* Increase padding for better centering */
+  width: 100%; /* Full width for centering */
+  text-align: center; /* Ensure text alignment */
+}
+
+.shop-sidebar li a:hover {
+  padding-left: 0.8rem; /* Remove left padding shift */
+  background: #41644A; /* Keep background color */
+}
+
+.shop-sidebar li:not(:last-child)::after {
+  left: 10%; /* Center the separator line */
+  right: 10%;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(41, 41, 41, 0.479);
+}
+
+.modal-content {
+  background-color: #F1F0E9;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 900px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.close {
+  color: #F1F0E9;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 35px;
+  font-weight: bold;
+  transition: 0.3s;
+  z-index: 20; /* Higher than carousel z-index */
+  background: rgba(13, 71, 21, 0.7);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.close:hover {
+  background: #E9762B;
+  transform: scale(1.0);
+}
+.close:focus {
+  color: #E9762B;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Carousel Styles */
+.carousel {
+  position: relative;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  aspect-ratio: 3/2; /* Enforce 3:2 aspect ratio */
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+
+/* Navigation Buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 71, 21, 0.7);
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s ease;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+.prev:hover, .next:hover {
+  background-color: #E9762B;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Modal Content Styles */
+.modal-car-info {
+  padding: 0 1rem;
+}
+
+.modal-car-title {
+  font-size: 2rem;
+  color: #0D4715;
+  margin-bottom: 1rem;
+}
+
+.modal-car-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1rem 0;
 }

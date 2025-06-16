@@ -263,13 +263,13 @@
             display: block;
             padding: 0.5rem 0.8rem;
             border-radius: 5px;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             font-size: 1.1rem;
         }
         
         .shop-sidebar li a:hover {
             background: #41644A;
-            padding-left: 1.2rem;
+            padding-left: 0.8rem;
         }
         
         /* Animation for warning tags */
@@ -379,7 +379,30 @@
                     </select>
                 </div>
             </div>
-    
+			<!-- Car Detail Modal -->
+
+			<div id="carModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				
+				<!-- Image Carousel -->
+				<div class="carousel">
+  				<img class="carousel-image" src="" alt="Car image">
+				<a class="prev">&#10095;</a> <!-- Right-pointing arrow -->
+				<a class="next">&#10094;</a> <!-- Left-pointing arrow -->
+				</div>
+				
+				<!-- Car Details -->
+				<div class="modal-car-info">
+				<h4 class="modal-car-title"></h4>
+				<div class="modal-car-tags"></div>
+				<div class="modal-car-description"></div>
+				<div class="modal-car-stats"></div>
+				<div class="modal-car-price"></div>
+				</div>
+			</div>
+			</div>    
+
             <!-- Cars Grid -->
             <div class="shop-grid">
                 <!-- Convertible Category -->
@@ -482,7 +505,7 @@
                 </div>
                 
                 <div class="shop-card">
-                    <img src="./assets/cars/Budget/bmw_isseta2.png" alt="BMW Isetta">
+                    <img src="./assets/cars/Budget/isseta1.png" alt="BMW Isetta">
                     <div class="car-info">
                         <h4>BMW Isetta 1962</h4>
                         <div class="car-tags">
@@ -505,7 +528,7 @@
                 
                 <div class="shop-card">
                     <div class="special-offer">عرض خاص!</div>
-                    <img src="./assets/cars/Budget/peelp50.png" alt="Peel P50">
+                    <img src="./assets/cars/Budget/peelp501.png" alt="Peel P50">
                     <div class="car-info">
                         <h4>Peel P50 1965</h4>
                         <div class="car-tags">
@@ -527,7 +550,7 @@
                 </div>
                 
                 <div class="shop-card">
-                    <img src="./assets/cars/Budget/peeltrident.png" alt="Peel Trident">
+                    <img src="./assets/cars/Budget/peeltrident1.png" alt="Peel Trident">
                     <div class="car-info">
                         <h4>Peel Trident 1966</h4>
                         <div class="car-tags">
@@ -750,7 +773,7 @@
                         <div class="car-tags">
                             <span class="car-tag">فنية</span>
                             <span class="car-tag">مبتكرة</span>
-                        </div>
+                        </div>!
                         <div class="car-description">
                             المستقبل بين يديك! مقصورة تدور 360 درجة لتغير مفهوم القيادة التقليدي. جرب الإثارة الحقيقية للسيارات المبتكرة.
                         </div>
@@ -796,5 +819,80 @@
             <p>© جميع الحقوق غير محفوظة لـ<a href="https://github.com/WIZZ3X/CARWOW-D-Jumia">CARWOWDJumia.com</a></p>
         </div>
     </footer>
+	<script>
+  // Modal functionality
+  const modal = document.getElementById("carModal");
+  const closeBtn = document.querySelector(".close");
+  
+  // Open modal with car details
+  function openCarModal(card) {
+    // Get car data
+    const title = card.querySelector("h4").innerText;
+    const tags = card.querySelector(".car-tags").innerHTML;
+    const description = card.querySelector(".car-description").innerText;
+    const stats = card.querySelector(".car-stats").innerHTML;
+    const price = card.querySelector(".car-price p").innerHTML;
+    const mainImage = card.querySelector("img").src;
+    
+    // Populate modal
+    document.querySelector(".modal-car-title").innerText = title;
+    document.querySelector(".modal-car-tags").innerHTML = tags;
+    document.querySelector(".modal-car-description").innerText = description;
+    document.querySelector(".modal-car-stats").innerHTML = stats;
+    document.querySelector(".modal-car-price").innerHTML = price;
+    document.querySelector(".carousel-image").src = mainImage;
+    
+    // Show modal
+    modal.style.display = "block";
+  }
+
+  // Close modal
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Close if clicked outside modal
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  // Image navigation
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const carouselImg = document.querySelector(".carousel-image");
+  
+  // For demo - replace with actual multiple images per car
+  const demoImages = [
+    "./assets/cars/s/Amphicar1.jpg",
+    "./assets/cars/s/Amphicar2.jpg",
+    "./assets/cars/s/Amphicar3.jpg",
+	"./assets/cars/s/Amphicar4.jpg",
+    "./assets/cars/s/Amphicar5.jpg",
+	"./assets/cars/s/Amphicar6.jpg",
+	"./assets/cars/s/Amphicar7.jpg",
+	"./assets/cars/s/Amphicar8.jpg"
+  ];
+  
+  let currentImageIndex = 0;
+  
+  prevBtn.addEventListener("click", () => {
+    currentImageIndex = (currentImageIndex - 1 + demoImages.length) % demoImages.length;
+    carouselImg.src = demoImages[currentImageIndex];
+  });
+  
+  nextBtn.addEventListener("click", () => {
+    currentImageIndex = (currentImageIndex + 1) % demoImages.length;
+    carouselImg.src = demoImages[currentImageIndex];
+  });
+
+  // Connect buttons
+  document.querySelectorAll(".view-btn").forEach(button => {
+    button.addEventListener("click", (e) => {
+      openCarModal(e.target.closest(".shop-card"));
+    });
+  });
+</script>
 </body>
 </html>
