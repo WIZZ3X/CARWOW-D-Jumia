@@ -310,7 +310,6 @@ nav a:hover {
 	color: #41644A;
 }
 
-/* Footer Styles */
 footer {
 	background-color: #E9762B;
     padding: 1.3rem 5%;
@@ -325,27 +324,6 @@ footer a {
     text-decoration: underline;
 }
 
-/* 
-
-
-
-
-
-
-
-            The  shop Page
-
-
-
-
-
-
-
-
-
-*/
-
-/* Shop Layout */
 .shop-container {
     display: flex;
     margin-top: 80px;
@@ -367,7 +345,6 @@ footer a {
     padding: 2rem;
 }
 
-/* Categories Sidebar */
 .shop-sidebar h3 {
     font-size: 1.5rem;
     border-bottom: 2px solid #E9762B;
@@ -393,7 +370,6 @@ footer a {
     background: #41644A;
 }
 
-/* Filter Navigation */
 .shop-filter {
     display: flex;
     gap: 1rem;
@@ -417,7 +393,6 @@ footer a {
     color: #F1F0E9;
 }
 
-/* Cars Grid */
 .shop-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -481,14 +456,6 @@ footer a {
     background: #d16623;
 }
 
-
-/*
-
-
-Authentication Styles 
-
-
-*/
 .auth-container {
     max-width: 500px;
     margin: 4rem auto;
@@ -543,35 +510,33 @@ Authentication Styles
     font-weight: bold;
 }
 
-
-/*Sidebar Container Alignment*/
 .shop-sidebar {
-	text-align: center; /* Center-align all text */
+	text-align: center;
 	width: 200px;
 }
 
 .shop-sidebar li {
   display: flex;
-  justify-content: center; /* Horizontally center content */
+  justify-content: center;
 }
 
 .shop-sidebar li a {
-  padding: 0.8rem 1.5rem; /* Increase padding for better centering */
-  width: 100%; /* Full width for centering */
-  text-align: center; /* Ensure text alignment */
+  padding: 0.8rem 1.5rem;
+  width: 100%;
+  text-align: center;
 }
 
 .shop-sidebar li a:hover {
-  padding-left: 0.8rem; /* Remove left padding shift */
-  background: #41644A; /* Keep background color */
+  padding-left: 0.8rem;
+  background: #41644A;
 }
 
 .shop-sidebar li:not(:last-child)::after {
-  left: 10%; /* Center the separator line */
+  left: 10%;
   right: 10%;
 }
 
-/* Modal Styles */
+
 .modal {
   display: none;
   position: fixed;
@@ -604,7 +569,7 @@ Authentication Styles
   font-size: 35px;
   font-weight: bold;
   transition: 0.3s;
-  z-index: 20; /* Higher than carousel z-index */
+  z-index: 20;
   background: rgba(13, 71, 21, 0.7);
   width: 40px;
   height: 40px;
@@ -625,12 +590,11 @@ Authentication Styles
   cursor: pointer;
 }
 
-/* Carousel Styles */
 .carousel {
   position: relative;
   margin-bottom: 2rem;
   overflow: hidden;
-  aspect-ratio: 3/2; /* Enforce 3:2 aspect ratio */
+  aspect-ratio: 3/2;
 }
 
 .carousel-image {
@@ -641,13 +605,11 @@ Authentication Styles
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-
-/* Navigation Buttons */
 .prev, .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); /* Center vertically */
+  transform: translateY(-50%);
   width: 40px;
   height: 40px;
   display: flex;
@@ -675,7 +637,6 @@ Authentication Styles
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Modal Content Styles */
 .modal-car-info {
   padding: 0 1rem;
 }
@@ -692,37 +653,6 @@ Authentication Styles
   gap: 0.7rem;
   margin: 1rem 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* About Page Styling */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .about-content {
     max-width: 900px;
@@ -787,8 +717,6 @@ Authentication Styles
     top: -0.2rem;
 }
 
-
-/* Team Section */
 .team-section {
     margin-top: 3rem;
     padding: 2rem;
@@ -838,7 +766,6 @@ Authentication Styles
     font-style: italic;
 }
 
-/* Timeline */
 .timeline {
     position: relative;
     margin: 3rem 0;
@@ -885,7 +812,6 @@ Authentication Styles
     border-right: 3px solid #0D4715;
 }
 
-/* Highlight Quote */
 .highlight {
     background: rgba(13, 71, 21, 0.1);
     padding: 1.5rem;
@@ -897,7 +823,6 @@ Authentication Styles
     margin: 2rem 0;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .about-content {
         padding: 1.5rem;
