@@ -40,7 +40,7 @@ header {
 }
 
 .logo {
-    margin-right: right; /* Pushes logo to left */
+    margin-right: right;
 }
 
 .logo img {
@@ -49,20 +49,20 @@ header {
 }
 
 .logo img:hover {
-	transform: scale(1.2); /* Pop-up effect */
+	transform: scale(1.2);
 }
 
 nav {
 	display: flex;
 	align-items: center;
-    gap: 1rem; /* Space between links */
+    gap: 1rem;
 	align-items: left;
 }
 
 nav a {
-	margin-left: 0; /* Remove left margin */
-	font-size: 1rem; /* Bigger font size */
-	font-weight: bold; /* Bold font */
+	margin-left: 0;
+	font-size: 1rem;
+	font-weight: bold;
 	color: #F1F0E9;
 	text-decoration: none;
 	transition: color 0.3s;
@@ -118,13 +118,13 @@ nav a:hover {
     min-height: 100vh;
     align-items: center;
     padding: 8rem 5% 0;
-    direction: ltr; /* Force LTR layout for this section only */
+    direction: ltr;
 }
 
 .hero-content {
-	order: 2; /* Move text to right side */
-    direction: rtl; /* Ensure text alignment */
-    text-align: right; /* Align text to the right */
+	order: 2; 
+    direction: rtl;
+    text-align: right;
     padding-right: 2rem;
     display: flex;
     flex-direction: column;
@@ -134,7 +134,7 @@ nav a:hover {
 .hero-content h1 {
     font-size: 4.5rem;
     color: #0D4715;
-    margin-top: 15rem; /* Add space up h1 */
+    margin-top: 15rem;
     line-height: 1.2;
 }
 
@@ -152,14 +152,14 @@ nav a:hover {
     display: flex;
     
     align-items: center;
-    direction: ltr; /* Reset for image */
+    direction: ltr;
 }
 
-.hero > div:last-child { /* Image container */
-	order: 1; /* Move image to left side */
+.hero > div:last-child {
+	order: 1;
     display: flex;
 	padding-right: 2rem;
-    justify-content: flex-end; /* Align image to left */
+    justify-content: flex-end;
 }
 
 .hero img {
@@ -179,16 +179,14 @@ nav a:hover {
     text-decoration: none;
     display: inline-block;
     transition: transform 0.4s;
-    margin-top: 2rem; /* Add space above button */
+    margin-top: 2rem;
 	font-family: 'ReadexPro', sans-serif;
 }
 
 .cta-button:hover {
-	transform: scale(1.06); /* Pop-up effect */
+	transform: scale(1.06);
 }
 
-
-/* Featured Cars Section */
 .featured-cars {
     padding: 2rem 5%;
     background-color: #F1F0E9;
@@ -239,7 +237,7 @@ nav a:hover {
 	text-align: left;
 }
 
-/* Videos Section */
+
 .videos {
 	padding: 4rem 5%;
     background-color: #F1F0E9;
@@ -266,7 +264,6 @@ nav a:hover {
     border-radius: 10px;
 }
 
-/* Testimonials Section */
 .testimonials {
 	padding: 4rem 5%;
 	background-color: #F1F0E9;
